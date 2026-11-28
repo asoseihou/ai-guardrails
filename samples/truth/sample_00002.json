@@ -1,0 +1,76 @@
+{
+  "doc_id": "sample_00002",
+  "filename": "sample_00002__lote-65397.pdf",
+  "doc_type": "cte",
+  "fields": {
+    "number": "693916",
+    "series": "2",
+    "issue_date": "2026-06-13",
+    "issuer_name": "Litoral Norte Engenharia ME",
+    "issuer_cnpj": "35772469917949",
+    "sender_name": "Bromélia Transportes Ltda",
+    "sender_cnpj": "33120649940068",
+    "recipient_name": "Jatobá Transportes Ltda",
+    "recipient_cnpj": "65284394979948",
+    "total_value": 3712.41,
+    "access_key": "29260635772469917949570020006939161988877108",
+    "cfop": "6353",
+    "freight_components": [
+      {
+        "name": "FRETE PESO",
+        "value": 3614.42
+      },
+      {
+        "name": "AD VALOREM",
+        "value": 97.99
+      }
+    ],
+    "gross_weight": 26425.519,
+    "due_date": "2026-07-04",
+    "referenced_keys": [
+      "13260633120649940068550010005740861450904293",
+      "13260633120649940068550010000436091895537852"
+    ],
+    "service_order": null
+  },
+  "layout": {
+    "issuer": {
+      "name": "Litoral Norte Engenharia ME",
+      "cnpj": "35772469917949",
+      "city": "Salvador",
+      "uf": "BA",
+      "street": "Rua Beira Rio, 2507"
+    },
+    "sender": {
+      "name": "Bromélia Transportes Ltda",
+      "cnpj": "33120649940068",
+      "city": "Manaus",
+      "uf": "AM",
+      "street": "Avenida da Estação, 1138"
+    },
+    "recipient": {
+      "name": "Jatobá Transportes Ltda",
+      "cnpj": "65284394979948",
+      "city": "Rio de Janeiro",
+      "uf": "RJ",
+      "street": "Rua do Contorno, 4607"
+    },
+    "taker": "recipient",
+    "issued_at": "2026-06-13T10:47:00",
+    "cargo": "PEÇAS INDUSTRIAIS",
+    "cargo_value": 1636587.68,
+    "referenced_keys": [
+      "13260633120649940068550010005740861450904293",
+      "13260633120649940068550010000436091895537852"
+    ],
+    "protocol": "299446687907280",
+    "attachment": {
+      "key": "13260633120649940068550010005740861450904293",
+      "number": 574086,
+      "gross_weight": 9592.434,
+      "due_date": "2026-08-20",
+      "value": 369716.25
+    }
+  },
+  "xml_filename": null
+}

@@ -1,0 +1,4 @@
+# torch is installed separately from the CPU wheel index (see Dockerfile / CI);
+# listing it here only pulls its pure-Python dependencies into the lock.
+torch==2.15.0
+numpy>=1.26,<3

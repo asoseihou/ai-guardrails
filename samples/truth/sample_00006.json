@@ -1,0 +1,61 @@
+{
+  "doc_id": "sample_00006",
+  "filename": "sample_00006__anexo-455201.pdf",
+  "doc_type": "nfe",
+  "fields": {
+    "number": "62948",
+    "series": "1",
+    "issue_date": "2026-10-26",
+    "issuer_name": "Rio Sereno Logística ME",
+    "issuer_cnpj": "40082306909602",
+    "recipient_name": "Zênite Armazéns Gerais S.A.",
+    "recipient_cnpj": "96696744903501",
+    "total_value": 37602.87,
+    "access_key": "13261040082306909602550010000629481964854337",
+    "cfop": "6102"
+  },
+  "layout": {
+    "issuer": {
+      "name": "Rio Sereno Logística ME",
+      "cnpj": "40082306909602",
+      "city": "Manaus",
+      "uf": "AM",
+      "street": "Rodovia dos Ipês, 1765"
+    },
+    "recipient": {
+      "name": "Zênite Armazéns Gerais S.A.",
+      "cnpj": "96696744903501",
+      "city": "Belém",
+      "uf": "PA",
+      "street": "Avenida do Contorno, 579"
+    },
+    "issued_at": "2026-10-26T16:26:00",
+    "nature": "VENDA DE MERCADORIA",
+    "protocol": "139374336209886",
+    "items": [
+      {
+        "code": "34052",
+        "description": "VÁLVULA DE ESFERA 2 POL",
+        "ncm": "84818099",
+        "cfop": "6102",
+        "unit": "UN",
+        "qty": 18,
+        "unit_price": 1844.44,
+        "total": 33199.92
+      },
+      {
+        "code": "76884",
+        "description": "JUNTA DE VEDAÇÃO METÁLICA",
+        "ncm": "84841000",
+        "cfop": "6102",
+        "unit": "UN",
+        "qty": 5,
+        "unit_price": 880.59,
+        "total": 4402.95
+      }
+    ],
+    "icms_rate": 12,
+    "icms_value": 4512.34
+  },
+  "xml_filename": "sample_00006__anexo-455201.xml"
+}

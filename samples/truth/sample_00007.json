@@ -1,0 +1,80 @@
+{
+  "doc_id": "sample_00007",
+  "filename": "sample_00007__anexo-384032.pdf",
+  "doc_type": "cte",
+  "fields": {
+    "number": "18653",
+    "series": "1",
+    "issue_date": "2025-10-03",
+    "issuer_name": "Zênite Equipamentos Ltda",
+    "issuer_cnpj": "66967545939460",
+    "sender_name": "Sol Poente Transportes ME",
+    "sender_cnpj": "27204296948228",
+    "recipient_name": "Vale Claro Engenharia Ltda",
+    "recipient_cnpj": "59078990949123",
+    "total_value": 17484.11,
+    "access_key": "35251066967545939460570010000186531228302130",
+    "cfop": "6353",
+    "freight_components": [
+      {
+        "name": "FRETE PESO",
+        "value": 16652.96
+      },
+      {
+        "name": "TAXA DE COLETA",
+        "value": 413.17
+      },
+      {
+        "name": "PEDÁGIO",
+        "value": 417.98
+      }
+    ],
+    "gross_weight": 5238.687,
+    "due_date": "2025-10-28",
+    "referenced_keys": [
+      "31251027204296948228550010005827621351863074",
+      "31250927204296948228550010008062911115291609"
+    ],
+    "service_order": null
+  },
+  "layout": {
+    "issuer": {
+      "name": "Zênite Equipamentos Ltda",
+      "cnpj": "66967545939460",
+      "city": "São Paulo",
+      "uf": "SP",
+      "street": "Travessa das Indústrias, 1044"
+    },
+    "sender": {
+      "name": "Sol Poente Transportes ME",
+      "cnpj": "27204296948228",
+      "city": "Contagem",
+      "uf": "MG",
+      "street": "Avenida das Acácias, 4296"
+    },
+    "recipient": {
+      "name": "Vale Claro Engenharia Ltda",
+      "cnpj": "59078990949123",
+      "city": "Niterói",
+      "uf": "RJ",
+      "street": "Avenida das Acácias, 145"
+    },
+    "taker": "recipient",
+    "issued_at": "2025-10-03T08:36:00",
+    "cargo": "TUBULAÇÕES",
+    "cargo_value": 1920801.24,
+    "referenced_keys": [
+      "31251027204296948228550010005827621351863074",
+      "31250927204296948228550010008062911115291609"
+    ],
+    "protocol": "352898947860260",
+    "attachment": {
+      "key": "31251027204296948228550010005827621351863074",
+      "number": 582762,
+      "gross_weight": 22596.928,
+      "due_date": "2025-11-28",
+      "value": 1903854.78
+    }
+  },
+  "xml_filename": null
+}

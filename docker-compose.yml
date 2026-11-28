@@ -1,0 +1,29 @@
+services:
+  api:
+    build: .
+    image: ai-guardrails:latest
+    ports:
+      - "127.0.0.1:8000:8000"   # localhost only; put a TLS reverse proxy in front to expose it
+    environment:
+      # "simulated" runs fully offline; set a real provider and its key to use an LLM API.
+      DOCAI_PROVIDER: ${DOCAI_PROVIDER:-simulated}
+      DOCAI_GUARDRAILS: ${DOCAI_GUARDRAILS:-full}
+      # Empty = the review endpoints answer 503. Use >= 24 random chars.
+      DOCAI_API_TOKEN: ${DOCAI_API_TOKEN:-}
+      DOCAI_LOG_JSON: "true"
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      DOCAI_ANTHROPIC_MODEL: ${DOCAI_ANTHROPIC_MODEL:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+    read_only: true
+    tmpfs:
+      - /tmp
+    volumes:
+      - docai-var:/app/var
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+volumes:
+  docai-var:

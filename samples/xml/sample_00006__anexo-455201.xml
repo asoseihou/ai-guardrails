@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+  <NFe>
+    <infNFe Id="NFe13261040082306909602550010000629481964854337" versao="4.00">
+      <ide>
+        <cUF>13</cUF>
+        <cNF>96485433</cNF>
+        <natOp>VENDA DE MERCADORIA</natOp>
+        <mod>55</mod>
+        <serie>1</serie>
+        <nNF>62948</nNF>
+        <dhEmi>2026-10-26T16:26:00-03:00</dhEmi>
+        <tpNF>1</tpNF>
+        <tpEmis>1</tpEmis>
+        <cDV>7</cDV>
+        <tpAmb>2</tpAmb>
+      </ide>
+      <emit>
+        <CNPJ>40082306909602</CNPJ>
+        <xNome>Rio Sereno Logística ME</xNome>
+        <enderEmit>
+          <xLgr>Rodovia dos Ipês, 1765</xLgr>
+          <xMun>Manaus</xMun>
+          <UF>AM</UF>
+        </enderEmit>
+      </emit>
+      <dest>
+        <CNPJ>96696744903501</CNPJ>
+        <xNome>Zênite Armazéns Gerais S.A.</xNome>
+        <enderDest>
+          <xLgr>Avenida do Contorno, 579</xLgr>
+          <xMun>Belém</xMun>
+          <UF>PA</UF>
+        </enderDest>
+      </dest>
+      <det nItem="1">
+        <prod>
+          <cProd>34052</cProd>
+          <xProd>VÁLVULA DE ESFERA 2 POL</xProd>
+          <NCM>84818099</NCM>
+          <CFOP>6102</CFOP>
+          <uCom>UN</uCom>
+          <qCom>18.0000</qCom>
+          <vUnCom>1844.44</vUnCom>
+          <vProd>33199.92</vProd>
+        </prod>
+      </det>
+      <det nItem="2">
+        <prod>
+          <cProd>76884</cProd>
+          <xProd>JUNTA DE VEDAÇÃO METÁLICA</xProd>
+          <NCM>84841000</NCM>
+          <CFOP>6102</CFOP>
+          <uCom>UN</uCom>
+          <qCom>5.0000</qCom>
+          <vUnCom>880.59</vUnCom>
+          <vProd>4402.95</vProd>
+        </prod>
+      </det>
+      <total>
+        <ICMSTot>
+          <vBC>37602.87</vBC>
+          <vICMS>4512.34</vICMS>
+          <vProd>37602.87</vProd>
+          <vFrete>0.00</vFrete>
+          <vNF>37602.87</vNF>
+        </ICMSTot>
+      </total>
+    </infNFe>
+  </NFe>
+  <protNFe versao="4.00">
+    <infProt>
+      <tpAmb>2</tpAmb>
+      <chNFe>13261040082306909602550010000629481964854337</chNFe>
+      <nProt>139374336209886</nProt>
+      <cStat>100</cStat>
+      <xMotivo>Autorizado o uso da NF-e</xMotivo>
+    </infProt>
+  </protNFe>
+</nfeProc>

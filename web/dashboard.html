@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ai-guardrails · dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="viz-root">
+  <header>
+    <div>
+      <h1>ai-guardrails</h1>
+      <p class="tagline">Cost &amp; quality across evaluation runs (full guardrails). Simulated-LLM numbers unless a real provider was used.</p>
+    </div>
+    <div id="run-scope" class="health"></div>
+  </header>
+
+  <nav class="tabs" aria-label="Sections">
+    <a class="tab" href="/">Extract</a>
+    <a class="tab" href="/#review">Review queue</a>
+    <a class="tab active" href="/dashboard" aria-current="page">Dashboard</a>
+    <a class="tab link" href="/docs">API docs</a>
+  </nav>
+
+  <main>
+    <section id="empty" class="card" hidden>
+      <h2>No runs yet</h2>
+      <p>Record one with <code>make demo</code> or <code>python -m docai eval</code>; every run is stored in SQLite and shows up here.</p>
+    </section>
+
+    <section id="kpis" class="kpis" aria-label="Latest run"></section>
+
+    <section class="card">
+      <h2>Quality across runs</h2>
+      <div class="grid3">
+        <figure class="chart" id="chart-accuracy"></figure>
+        <figure class="chart" id="chart-review"></figure>
+        <figure class="chart" id="chart-silent"></figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Cost and latency</h2>
+      <div class="grid2">
+        <figure class="chart" id="chart-cost"></figure>
+        <figure class="chart" id="chart-latency"></figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Per-field error, latest run</h2>
+      <p class="muted">Share of documents where the field is wrong or empty: raw model output vs what the guardrails publish (nulled fields go to review and count as errors here).</p>
+      <figure class="chart" id="chart-fields"></figure>
+    </section>
+
+    <section class="card">
+      <h2>Runs</h2>
+      <div class="table-scroll"><table id="runs-table"></table></div>
+    </section>
+  </main>
+
+  <div id="tooltip" class="tooltip" role="status" hidden></div>
+  <footer>Data: <code>GET /metrics/runs</code>. Charts are inline SVG drawn by <code>/static/dashboard.js</code> (no third-party code).</footer>
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

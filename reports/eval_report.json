@@ -1,0 +1,1474 @@
+{
+  "generated_on": "2026-11-28",
+  "corpus": {
+    "n": 300,
+    "seed": 42,
+    "counts": {
+      "boleto": 39,
+      "cte": 75,
+      "nfe": 90,
+      "nfse": 60,
+      "other": 36
+    },
+    "with_xml": 80
+  },
+  "provider_seed": 7,
+  "noise": 1.0,
+  "error_rates": {
+    "cnpj_digit_swap": 0.07,
+    "hallucinated_party": 0.06,
+    "number_from_filename": 0.08,
+    "wrong_decimal": 0.07,
+    "dropped_field": 0.025,
+    "key_typo": 0.06,
+    "date_swap": 0.05,
+    "component_label_swap": 0.12,
+    "party_role_swap": 0.06,
+    "name_from_neighbour": 0.06,
+    "reference_from_address": 0.06,
+    "weight_from_attachment": 0.12,
+    "due_date_from_duplicate": 0.12,
+    "payer_into_recipient": 0.08,
+    "referenced_key_typo": 0.05,
+    "prompt_injection": 1.0,
+    "truncation": 0.04,
+    "truncation_persists": 0.3
+  },
+  "usage": {
+    "provider": "simulated",
+    "model": "simulated-llm-v1",
+    "simulated": true,
+    "pricing": "illustrative: $3 / 1M input, $15 / 1M output tokens",
+    "calls": 225,
+    "attempts": 239,
+    "input_tokens": 203219,
+    "output_tokens": 41438,
+    "cost_usd_total": 1.2312,
+    "cost_usd_per_doc": 0.00547,
+    "cost_usd_per_1000_docs": 5.47,
+    "latency_s_mean": 2.518,
+    "latency_s_p50": 1.913,
+    "latency_s_p95": 8.705
+  },
+  "routing": {
+    "n_docs": 300,
+    "routing_accuracy": 1.0,
+    "misrouted": [],
+    "provider_errors": 7
+  },
+  "xml": {
+    "config": "full",
+    "n_docs": 80,
+    "strategies": {
+      "llm_only": {
+        "n_docs": 80,
+        "llm_calls": 80,
+        "field_accuracy": 0.9603,
+        "straight_through_rate": 0.725,
+        "review_rate": 0.275,
+        "silent_error_rate": 0.0,
+        "cost_usd_per_doc": 0.00542
+      },
+      "llm_xml_cross_check": {
+        "n_docs": 80,
+        "llm_calls": 80,
+        "field_accuracy": 1.0,
+        "straight_through_rate": 0.9375,
+        "review_rate": 0.0625,
+        "silent_error_rate": 0.0,
+        "cost_usd_per_doc": 0.00542
+      },
+      "xml_first": {
+        "n_docs": 80,
+        "llm_calls": 41,
+        "field_accuracy": 1.0,
+        "straight_through_rate": 0.9875,
+        "review_rate": 0.0125,
+        "silent_error_rate": 0.0,
+        "cost_usd_per_doc": 0.00257
+      }
+    }
+  },
+  "recovery": {
+    "calls": 225,
+    "truncated": 14,
+    "recovered": 7,
+    "sent_to_review": 7,
+    "retries": 14,
+    "retry_cost_usd": 0.11322,
+    "naive_max_retries": 3,
+    "naive_extra_calls": 42,
+    "naive_recovered": 0,
+    "cost_avoided_usd": 0.3726
+  },
+  "configs": {
+    "off": {
+      "config": "off",
+      "n_docs": 225,
+      "n_fields": 2895,
+      "raw_field_accuracy": 0.8902,
+      "field_accuracy": 0.8902,
+      "docs_with_raw_errors": 128,
+      "straight_through": 97,
+      "straight_through_rate": 0.4311,
+      "review_rate": 0.0311,
+      "silent_error_docs": 121,
+      "silent_error_rate": 0.5378,
+      "wrong_values_published": 165,
+      "corrected_fields": 0,
+      "nulled_fields": 0,
+      "flagged_fields": 0,
+      "false_corrections": 0,
+      "per_field": {
+        "access_key": {
+          "n": 165,
+          "raw_accuracy": 0.8545,
+          "final_accuracy": 0.8545
+        },
+        "cfop": {
+          "n": 165,
+          "raw_accuracy": 0.9394,
+          "final_accuracy": 0.9394
+        },
+        "due_date": {
+          "n": 75,
+          "raw_accuracy": 0.8933,
+          "final_accuracy": 0.8933
+        },
+        "freight_components": {
+          "n": 75,
+          "raw_accuracy": 0.9067,
+          "final_accuracy": 0.9067
+        },
+        "gross_weight": {
+          "n": 75,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "iss_rate": {
+          "n": 60,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "iss_value": {
+          "n": 60,
+          "raw_accuracy": 0.9667,
+          "final_accuracy": 0.9667
+        },
+        "issue_date": {
+          "n": 225,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "issuer_cnpj": {
+          "n": 225,
+          "raw_accuracy": 0.8133,
+          "final_accuracy": 0.8133
+        },
+        "issuer_name": {
+          "n": 225,
+          "raw_accuracy": 0.8089,
+          "final_accuracy": 0.8089
+        },
+        "number": {
+          "n": 225,
+          "raw_accuracy": 0.88,
+          "final_accuracy": 0.88
+        },
+        "recipient_cnpj": {
+          "n": 225,
+          "raw_accuracy": 0.8356,
+          "final_accuracy": 0.8356
+        },
+        "recipient_name": {
+          "n": 225,
+          "raw_accuracy": 0.9156,
+          "final_accuracy": 0.9156
+        },
+        "referenced_keys": {
+          "n": 75,
+          "raw_accuracy": 0.92,
+          "final_accuracy": 0.92
+        },
+        "sender_cnpj": {
+          "n": 75,
+          "raw_accuracy": 0.84,
+          "final_accuracy": 0.84
+        },
+        "sender_name": {
+          "n": 75,
+          "raw_accuracy": 0.8933,
+          "final_accuracy": 0.8933
+        },
+        "series": {
+          "n": 165,
+          "raw_accuracy": 0.9273,
+          "final_accuracy": 0.9273
+        },
+        "service_order": {
+          "n": 135,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "services": {
+          "n": 60,
+          "raw_accuracy": 0.9667,
+          "final_accuracy": 0.9667
+        },
+        "total_value": {
+          "n": 225,
+          "raw_accuracy": 0.9067,
+          "final_accuracy": 0.9067
+        },
+        "verification_code": {
+          "n": 60,
+          "raw_accuracy": 0.9167,
+          "final_accuracy": 0.9167
+        }
+      },
+      "per_type": {
+        "nfe": {
+          "n": 90,
+          "straight_through_rate": 0.4222,
+          "silent_error_rate": 0.5333
+        },
+        "cte": {
+          "n": 75,
+          "straight_through_rate": 0.3333,
+          "silent_error_rate": 0.6533
+        },
+        "nfse": {
+          "n": 60,
+          "straight_through_rate": 0.5667,
+          "silent_error_rate": 0.4
+        }
+      },
+      "error_modes": {
+        "cnpj_digit_swap": {
+          "missed": 31
+        },
+        "component_label_swap": {
+          "missed": 6
+        },
+        "date_swap": {
+          "missed": 4
+        },
+        "dropped_field": {
+          "missed": 72
+        },
+        "due_date_from_duplicate": {
+          "missed": 6
+        },
+        "hallucinated_party": {
+          "missed": 30
+        },
+        "key_typo": {
+          "missed": 12
+        },
+        "name_from_neighbour": {
+          "missed": 12
+        },
+        "number_from_filename": {
+          "missed": 16
+        },
+        "party_role_swap": {
+          "missed": 28
+        },
+        "payer_into_recipient": {
+          "missed": 4
+        },
+        "reference_from_address": {
+          "missed": 6
+        },
+        "referenced_key_typo": {
+          "missed": 4
+        },
+        "weight_from_attachment": {
+          "missed": 3
+        },
+        "wrong_decimal": {
+          "missed": 13
+        }
+      }
+    },
+    "dv-only": {
+      "config": "dv-only",
+      "n_docs": 225,
+      "n_fields": 2895,
+      "raw_field_accuracy": 0.8902,
+      "field_accuracy": 0.8902,
+      "docs_with_raw_errors": 128,
+      "straight_through": 97,
+      "straight_through_rate": 0.4311,
+      "review_rate": 0.4133,
+      "silent_error_docs": 35,
+      "silent_error_rate": 0.1556,
+      "wrong_values_published": 49,
+      "corrected_fields": 0,
+      "nulled_fields": 41,
+      "flagged_fields": 150,
+      "false_corrections": 0,
+      "per_field": {
+        "access_key": {
+          "n": 165,
+          "raw_accuracy": 0.8545,
+          "final_accuracy": 0.8545
+        },
+        "cfop": {
+          "n": 165,
+          "raw_accuracy": 0.9394,
+          "final_accuracy": 0.9394
+        },
+        "due_date": {
+          "n": 75,
+          "raw_accuracy": 0.8933,
+          "final_accuracy": 0.8933
+        },
+        "freight_components": {
+          "n": 75,
+          "raw_accuracy": 0.9067,
+          "final_accuracy": 0.9067
+        },
+        "gross_weight": {
+          "n": 75,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "iss_rate": {
+          "n": 60,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "iss_value": {
+          "n": 60,
+          "raw_accuracy": 0.9667,
+          "final_accuracy": 0.9667
+        },
+        "issue_date": {
+          "n": 225,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "issuer_cnpj": {
+          "n": 225,
+          "raw_accuracy": 0.8133,
+          "final_accuracy": 0.8133
+        },
+        "issuer_name": {
+          "n": 225,
+          "raw_accuracy": 0.8089,
+          "final_accuracy": 0.8089
+        },
+        "number": {
+          "n": 225,
+          "raw_accuracy": 0.88,
+          "final_accuracy": 0.88
+        },
+        "recipient_cnpj": {
+          "n": 225,
+          "raw_accuracy": 0.8356,
+          "final_accuracy": 0.8356
+        },
+        "recipient_name": {
+          "n": 225,
+          "raw_accuracy": 0.9156,
+          "final_accuracy": 0.9156
+        },
+        "referenced_keys": {
+          "n": 75,
+          "raw_accuracy": 0.92,
+          "final_accuracy": 0.92
+        },
+        "sender_cnpj": {
+          "n": 75,
+          "raw_accuracy": 0.84,
+          "final_accuracy": 0.84
+        },
+        "sender_name": {
+          "n": 75,
+          "raw_accuracy": 0.8933,
+          "final_accuracy": 0.8933
+        },
+        "series": {
+          "n": 165,
+          "raw_accuracy": 0.9273,
+          "final_accuracy": 0.9273
+        },
+        "service_order": {
+          "n": 135,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "services": {
+          "n": 60,
+          "raw_accuracy": 0.9667,
+          "final_accuracy": 0.9667
+        },
+        "total_value": {
+          "n": 225,
+          "raw_accuracy": 0.9067,
+          "final_accuracy": 0.9067
+        },
+        "verification_code": {
+          "n": 60,
+          "raw_accuracy": 0.9167,
+          "final_accuracy": 0.9167
+        }
+      },
+      "per_type": {
+        "nfe": {
+          "n": 90,
+          "straight_through_rate": 0.4222,
+          "silent_error_rate": 0.1444
+        },
+        "cte": {
+          "n": 75,
+          "straight_through_rate": 0.3333,
+          "silent_error_rate": 0.2
+        },
+        "nfse": {
+          "n": 60,
+          "straight_through_rate": 0.5667,
+          "silent_error_rate": 0.1167
+        }
+      },
+      "error_modes": {
+        "cnpj_digit_swap": {
+          "caught": 31
+        },
+        "component_label_swap": {
+          "caught": 2,
+          "missed": 4
+        },
+        "date_swap": {
+          "caught": 2,
+          "missed": 2
+        },
+        "dropped_field": {
+          "caught": 72
+        },
+        "due_date_from_duplicate": {
+          "caught": 4,
+          "missed": 2
+        },
+        "hallucinated_party": {
+          "caught": 18,
+          "missed": 12
+        },
+        "key_typo": {
+          "caught": 11,
+          "missed": 1
+        },
+        "name_from_neighbour": {
+          "caught": 6,
+          "missed": 6
+        },
+        "number_from_filename": {
+          "missed": 9,
+          "caught": 7
+        },
+        "party_role_swap": {
+          "caught": 28
+        },
+        "payer_into_recipient": {
+          "caught": 2,
+          "missed": 2
+        },
+        "reference_from_address": {
+          "caught": 3,
+          "missed": 3
+        },
+        "referenced_key_typo": {
+          "caught": 3,
+          "missed": 1
+        },
+        "weight_from_attachment": {
+          "caught": 2,
+          "missed": 1
+        },
+        "wrong_decimal": {
+          "caught": 7,
+          "missed": 6
+        }
+      }
+    },
+    "text": {
+      "config": "text",
+      "n_docs": 225,
+      "n_fields": 2895,
+      "raw_field_accuracy": 0.8902,
+      "field_accuracy": 0.9244,
+      "docs_with_raw_errors": 128,
+      "straight_through": 122,
+      "straight_through_rate": 0.5422,
+      "review_rate": 0.4356,
+      "silent_error_docs": 5,
+      "silent_error_rate": 0.0222,
+      "wrong_values_published": 6,
+      "corrected_fields": 99,
+      "nulled_fields": 70,
+      "flagged_fields": 107,
+      "false_corrections": 0,
+      "per_field": {
+        "access_key": {
+          "n": 165,
+          "raw_accuracy": 0.8545,
+          "final_accuracy": 1.0
+        },
+        "cfop": {
+          "n": 165,
+          "raw_accuracy": 0.9394,
+          "final_accuracy": 0.9394
+        },
+        "due_date": {
+          "n": 75,
+          "raw_accuracy": 0.8933,
+          "final_accuracy": 0.8933
+        },
+        "freight_components": {
+          "n": 75,
+          "raw_accuracy": 0.9067,
+          "final_accuracy": 1.0
+        },
+        "gross_weight": {
+          "n": 75,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "iss_rate": {
+          "n": 60,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "iss_value": {
+          "n": 60,
+          "raw_accuracy": 0.9667,
+          "final_accuracy": 0.9667
+        },
+        "issue_date": {
+          "n": 225,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "issuer_cnpj": {
+          "n": 225,
+          "raw_accuracy": 0.8133,
+          "final_accuracy": 0.9556
+        },
+        "issuer_name": {
+          "n": 225,
+          "raw_accuracy": 0.8089,
+          "final_accuracy": 0.8089
+        },
+        "number": {
+          "n": 225,
+          "raw_accuracy": 0.88,
+          "final_accuracy": 0.96
+        },
+        "recipient_cnpj": {
+          "n": 225,
+          "raw_accuracy": 0.8356,
+          "final_accuracy": 0.8356
+        },
+        "recipient_name": {
+          "n": 225,
+          "raw_accuracy": 0.9156,
+          "final_accuracy": 0.9156
+        },
+        "referenced_keys": {
+          "n": 75,
+          "raw_accuracy": 0.92,
+          "final_accuracy": 0.92
+        },
+        "sender_cnpj": {
+          "n": 75,
+          "raw_accuracy": 0.84,
+          "final_accuracy": 0.84
+        },
+        "sender_name": {
+          "n": 75,
+          "raw_accuracy": 0.8933,
+          "final_accuracy": 0.8933
+        },
+        "series": {
+          "n": 165,
+          "raw_accuracy": 0.9273,
+          "final_accuracy": 1.0
+        },
+        "service_order": {
+          "n": 135,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "services": {
+          "n": 60,
+          "raw_accuracy": 0.9667,
+          "final_accuracy": 0.9667
+        },
+        "total_value": {
+          "n": 225,
+          "raw_accuracy": 0.9067,
+          "final_accuracy": 0.9333
+        },
+        "verification_code": {
+          "n": 60,
+          "raw_accuracy": 0.9167,
+          "final_accuracy": 0.9167
+        }
+      },
+      "per_type": {
+        "nfe": {
+          "n": 90,
+          "straight_through_rate": 0.5667,
+          "silent_error_rate": 0.0
+        },
+        "cte": {
+          "n": 75,
+          "straight_through_rate": 0.4933,
+          "silent_error_rate": 0.0667
+        },
+        "nfse": {
+          "n": 60,
+          "straight_through_rate": 0.5667,
+          "silent_error_rate": 0.0
+        }
+      },
+      "error_modes": {
+        "cnpj_digit_swap": {
+          "caught": 24,
+          "fixed": 7
+        },
+        "component_label_swap": {
+          "fixed": 6
+        },
+        "date_swap": {
+          "caught": 4
+        },
+        "dropped_field": {
+          "fixed": 25,
+          "caught": 47
+        },
+        "due_date_from_duplicate": {
+          "caught": 2,
+          "missed": 4
+        },
+        "hallucinated_party": {
+          "caught": 16,
+          "fixed": 14
+        },
+        "key_typo": {
+          "fixed": 12
+        },
+        "name_from_neighbour": {
+          "caught": 12
+        },
+        "number_from_filename": {
+          "caught": 6,
+          "fixed": 10
+        },
+        "party_role_swap": {
+          "caught": 28
+        },
+        "payer_into_recipient": {
+          "caught": 4
+        },
+        "reference_from_address": {
+          "caught": 5,
+          "missed": 1
+        },
+        "referenced_key_typo": {
+          "caught": 4
+        },
+        "weight_from_attachment": {
+          "caught": 2,
+          "missed": 1
+        },
+        "wrong_decimal": {
+          "fixed": 5,
+          "caught": 8
+        }
+      }
+    },
+    "full": {
+      "config": "full",
+      "n_docs": 225,
+      "n_fields": 2895,
+      "raw_field_accuracy": 0.8902,
+      "field_accuracy": 0.9793,
+      "docs_with_raw_errors": 128,
+      "straight_through": 184,
+      "straight_through_rate": 0.8178,
+      "review_rate": 0.1822,
+      "silent_error_docs": 0,
+      "silent_error_rate": 0.0,
+      "wrong_values_published": 0,
+      "corrected_fields": 257,
+      "nulled_fields": 18,
+      "flagged_fields": 43,
+      "false_corrections": 0,
+      "per_field": {
+        "access_key": {
+          "n": 165,
+          "raw_accuracy": 0.8545,
+          "final_accuracy": 1.0
+        },
+        "cfop": {
+          "n": 165,
+          "raw_accuracy": 0.9394,
+          "final_accuracy": 0.9394
+        },
+        "due_date": {
+          "n": 75,
+          "raw_accuracy": 0.8933,
+          "final_accuracy": 1.0
+        },
+        "freight_components": {
+          "n": 75,
+          "raw_accuracy": 0.9067,
+          "final_accuracy": 1.0
+        },
+        "gross_weight": {
+          "n": 75,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 1.0
+        },
+        "iss_rate": {
+          "n": 60,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "iss_value": {
+          "n": 60,
+          "raw_accuracy": 0.9667,
+          "final_accuracy": 0.9667
+        },
+        "issue_date": {
+          "n": 225,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 0.9333
+        },
+        "issuer_cnpj": {
+          "n": 225,
+          "raw_accuracy": 0.8133,
+          "final_accuracy": 1.0
+        },
+        "issuer_name": {
+          "n": 225,
+          "raw_accuracy": 0.8089,
+          "final_accuracy": 1.0
+        },
+        "number": {
+          "n": 225,
+          "raw_accuracy": 0.88,
+          "final_accuracy": 0.96
+        },
+        "recipient_cnpj": {
+          "n": 225,
+          "raw_accuracy": 0.8356,
+          "final_accuracy": 1.0
+        },
+        "recipient_name": {
+          "n": 225,
+          "raw_accuracy": 0.9156,
+          "final_accuracy": 1.0
+        },
+        "referenced_keys": {
+          "n": 75,
+          "raw_accuracy": 0.92,
+          "final_accuracy": 1.0
+        },
+        "sender_cnpj": {
+          "n": 75,
+          "raw_accuracy": 0.84,
+          "final_accuracy": 1.0
+        },
+        "sender_name": {
+          "n": 75,
+          "raw_accuracy": 0.8933,
+          "final_accuracy": 1.0
+        },
+        "series": {
+          "n": 165,
+          "raw_accuracy": 0.9273,
+          "final_accuracy": 1.0
+        },
+        "service_order": {
+          "n": 135,
+          "raw_accuracy": 0.9333,
+          "final_accuracy": 1.0
+        },
+        "services": {
+          "n": 60,
+          "raw_accuracy": 0.9667,
+          "final_accuracy": 1.0
+        },
+        "total_value": {
+          "n": 225,
+          "raw_accuracy": 0.9067,
+          "final_accuracy": 0.9333
+        },
+        "verification_code": {
+          "n": 60,
+          "raw_accuracy": 0.9167,
+          "final_accuracy": 0.9167
+        }
+      },
+      "per_type": {
+        "nfe": {
+          "n": 90,
+          "straight_through_rate": 0.8222,
+          "silent_error_rate": 0.0
+        },
+        "cte": {
+          "n": 75,
+          "straight_through_rate": 0.9333,
+          "silent_error_rate": 0.0
+        },
+        "nfse": {
+          "n": 60,
+          "straight_through_rate": 0.6667,
+          "silent_error_rate": 0.0
+        }
+      },
+      "error_modes": {
+        "cnpj_digit_swap": {
+          "fixed": 31
+        },
+        "component_label_swap": {
+          "fixed": 6
+        },
+        "date_swap": {
+          "caught": 4
+        },
+        "dropped_field": {
+          "fixed": 55,
+          "caught": 17
+        },
+        "due_date_from_duplicate": {
+          "fixed": 6
+        },
+        "hallucinated_party": {
+          "fixed": 30
+        },
+        "key_typo": {
+          "fixed": 12
+        },
+        "name_from_neighbour": {
+          "fixed": 12
+        },
+        "number_from_filename": {
+          "caught": 6,
+          "fixed": 10
+        },
+        "party_role_swap": {
+          "fixed": 28
+        },
+        "payer_into_recipient": {
+          "fixed": 4
+        },
+        "reference_from_address": {
+          "fixed": 6
+        },
+        "referenced_key_typo": {
+          "fixed": 4
+        },
+        "weight_from_attachment": {
+          "fixed": 3
+        },
+        "wrong_decimal": {
+          "fixed": 5,
+          "caught": 8
+        }
+      }
+    }
+  },
+  "replays": [
+    {
+      "a": "text",
+      "b": "full",
+      "fields_compared": 2895,
+      "totals": {
+        "unchanged": 2736,
+        "fixed": 159,
+        "changed": 159
+      },
+      "documents": {
+        "straight_through_gained": 62,
+        "straight_through_lost": 0,
+        "silent_errors_removed": 5,
+        "silent_errors_added": 0,
+        "sent_to_review": 0
+      },
+      "per_field": {
+        "access_key": {
+          "unchanged": 165
+        },
+        "cfop": {
+          "unchanged": 165
+        },
+        "due_date": {
+          "unchanged": 67,
+          "fixed": 8,
+          "changed": 8
+        },
+        "freight_components": {
+          "unchanged": 75
+        },
+        "gross_weight": {
+          "unchanged": 70,
+          "fixed": 5,
+          "changed": 5
+        },
+        "iss_rate": {
+          "unchanged": 60
+        },
+        "iss_value": {
+          "unchanged": 60
+        },
+        "issue_date": {
+          "unchanged": 225
+        },
+        "issuer_cnpj": {
+          "unchanged": 215,
+          "fixed": 10,
+          "changed": 10
+        },
+        "issuer_name": {
+          "fixed": 43,
+          "changed": 43,
+          "unchanged": 182
+        },
+        "number": {
+          "unchanged": 225
+        },
+        "recipient_cnpj": {
+          "fixed": 37,
+          "changed": 37,
+          "unchanged": 188
+        },
+        "recipient_name": {
+          "unchanged": 206,
+          "fixed": 19,
+          "changed": 19
+        },
+        "referenced_keys": {
+          "unchanged": 69,
+          "fixed": 6,
+          "changed": 6
+        },
+        "sender_cnpj": {
+          "unchanged": 63,
+          "fixed": 12,
+          "changed": 12
+        },
+        "sender_name": {
+          "unchanged": 67,
+          "fixed": 8,
+          "changed": 8
+        },
+        "series": {
+          "unchanged": 165
+        },
+        "service_order": {
+          "unchanged": 126,
+          "fixed": 9,
+          "changed": 9
+        },
+        "services": {
+          "unchanged": 58,
+          "fixed": 2,
+          "changed": 2
+        },
+        "total_value": {
+          "unchanged": 225
+        },
+        "verification_code": {
+          "unchanged": 60
+        }
+      }
+    },
+    {
+      "a": "dv-only",
+      "b": "full",
+      "fields_compared": 2895,
+      "totals": {
+        "unchanged": 2620,
+        "fixed": 258,
+        "changed": 275,
+        "withheld": 17
+      },
+      "documents": {
+        "straight_through_gained": 87,
+        "straight_through_lost": 0,
+        "silent_errors_removed": 35,
+        "silent_errors_added": 0,
+        "sent_to_review": 11
+      },
+      "per_field": {
+        "access_key": {
+          "unchanged": 141,
+          "fixed": 24,
+          "changed": 24
+        },
+        "cfop": {
+          "unchanged": 165
+        },
+        "due_date": {
+          "unchanged": 67,
+          "fixed": 8,
+          "changed": 8
+        },
+        "freight_components": {
+          "unchanged": 68,
+          "fixed": 7,
+          "changed": 7
+        },
+        "gross_weight": {
+          "unchanged": 70,
+          "fixed": 5,
+          "changed": 5
+        },
+        "iss_rate": {
+          "unchanged": 60
+        },
+        "iss_value": {
+          "unchanged": 60
+        },
+        "issue_date": {
+          "unchanged": 221,
+          "withheld": 4,
+          "changed": 4
+        },
+        "issuer_cnpj": {
+          "fixed": 42,
+          "changed": 42,
+          "unchanged": 183
+        },
+        "issuer_name": {
+          "fixed": 43,
+          "changed": 43,
+          "unchanged": 182
+        },
+        "number": {
+          "unchanged": 201,
+          "fixed": 18,
+          "changed": 24,
+          "withheld": 6
+        },
+        "recipient_cnpj": {
+          "fixed": 37,
+          "changed": 37,
+          "unchanged": 188
+        },
+        "recipient_name": {
+          "unchanged": 206,
+          "fixed": 19,
+          "changed": 19
+        },
+        "referenced_keys": {
+          "unchanged": 69,
+          "fixed": 6,
+          "changed": 6
+        },
+        "sender_cnpj": {
+          "unchanged": 63,
+          "fixed": 12,
+          "changed": 12
+        },
+        "sender_name": {
+          "unchanged": 67,
+          "fixed": 8,
+          "changed": 8
+        },
+        "series": {
+          "unchanged": 153,
+          "fixed": 12,
+          "changed": 12
+        },
+        "service_order": {
+          "unchanged": 126,
+          "fixed": 9,
+          "changed": 9
+        },
+        "services": {
+          "unchanged": 58,
+          "fixed": 2,
+          "changed": 2
+        },
+        "total_value": {
+          "unchanged": 212,
+          "fixed": 6,
+          "changed": 13,
+          "withheld": 7
+        },
+        "verification_code": {
+          "unchanged": 60
+        }
+      }
+    },
+    {
+      "a": "off",
+      "b": "full",
+      "fields_compared": 2895,
+      "totals": {
+        "unchanged": 2620,
+        "fixed": 258,
+        "changed": 275,
+        "withheld": 17
+      },
+      "documents": {
+        "straight_through_gained": 87,
+        "straight_through_lost": 0,
+        "silent_errors_removed": 121,
+        "silent_errors_added": 0,
+        "sent_to_review": 34
+      },
+      "per_field": {
+        "access_key": {
+          "unchanged": 141,
+          "fixed": 24,
+          "changed": 24
+        },
+        "cfop": {
+          "unchanged": 165
+        },
+        "due_date": {
+          "unchanged": 67,
+          "fixed": 8,
+          "changed": 8
+        },
+        "freight_components": {
+          "unchanged": 68,
+          "fixed": 7,
+          "changed": 7
+        },
+        "gross_weight": {
+          "unchanged": 70,
+          "fixed": 5,
+          "changed": 5
+        },
+        "iss_rate": {
+          "unchanged": 60
+        },
+        "iss_value": {
+          "unchanged": 60
+        },
+        "issue_date": {
+          "unchanged": 221,
+          "withheld": 4,
+          "changed": 4
+        },
+        "issuer_cnpj": {
+          "fixed": 42,
+          "changed": 42,
+          "unchanged": 183
+        },
+        "issuer_name": {
+          "fixed": 43,
+          "changed": 43,
+          "unchanged": 182
+        },
+        "number": {
+          "unchanged": 201,
+          "fixed": 18,
+          "changed": 24,
+          "withheld": 6
+        },
+        "recipient_cnpj": {
+          "fixed": 37,
+          "changed": 37,
+          "unchanged": 188
+        },
+        "recipient_name": {
+          "unchanged": 206,
+          "fixed": 19,
+          "changed": 19
+        },
+        "referenced_keys": {
+          "unchanged": 69,
+          "fixed": 6,
+          "changed": 6
+        },
+        "sender_cnpj": {
+          "unchanged": 63,
+          "fixed": 12,
+          "changed": 12
+        },
+        "sender_name": {
+          "unchanged": 67,
+          "fixed": 8,
+          "changed": 8
+        },
+        "series": {
+          "unchanged": 153,
+          "fixed": 12,
+          "changed": 12
+        },
+        "service_order": {
+          "unchanged": 126,
+          "fixed": 9,
+          "changed": 9
+        },
+        "services": {
+          "unchanged": 58,
+          "fixed": 2,
+          "changed": 2
+        },
+        "total_value": {
+          "unchanged": 212,
+          "fixed": 6,
+          "changed": 13,
+          "withheld": 7
+        },
+        "verification_code": {
+          "unchanged": 60
+        }
+      }
+    }
+  ],
+  "rag": {
+    "n_questions": 20,
+    "k": 3,
+    "hit_at_1": 0.85,
+    "hit_at_3": 1.0,
+    "mrr": 0.9167,
+    "rows": [
+      {
+        "question": "What weights are used to compute the check digit of an NF-e access key?",
+        "rank": 1,
+        "top": [
+          "nfe_access_key.md#check-digit-modulo-11"
+        ]
+      },
+      {
+        "question": "Which positions of the access key hold the issuer CNPJ?",
+        "rank": 2,
+        "top": [
+          "nfe_access_key.md#using-the-key-to-validate-an-extraction"
+        ]
+      },
+      {
+        "question": "What does model 57 mean in an access key?",
+        "rank": 1,
+        "top": [
+          "cte.md#what-it-is"
+        ]
+      },
+      {
+        "question": "Can the access key be used to recover the day the document was issued?",
+        "rank": 1,
+        "top": [
+          "nfe_access_key.md#using-the-key-to-validate-an-extraction"
+        ]
+      },
+      {
+        "question": "How are the two check digits of a CNPJ calculated?",
+        "rank": 3,
+        "top": [
+          "cnpj.md#alphanumeric-cnpj"
+        ]
+      },
+      {
+        "question": "What does the branch number 0001 mean in a CNPJ?",
+        "rank": 1,
+        "top": [
+          "cnpj.md#structure"
+        ]
+      },
+      {
+        "question": "When did the alphanumeric CNPJ start and which characters can it contain?",
+        "rank": 1,
+        "top": [
+          "cnpj.md#alphanumeric-cnpj"
+        ]
+      },
+      {
+        "question": "If a CNPJ has valid check digits, is it necessarily the right company?",
+        "rank": 1,
+        "top": [
+          "cnpj.md#why-check-digits-are-not-enough"
+        ]
+      },
+      {
+        "question": "What does a CFOP starting with 6 indicate?",
+        "rank": 2,
+        "top": [
+          "cfop.md#consistency-checks"
+        ]
+      },
+      {
+        "question": "Which CFOP applies to selling goods bought from third parties to a customer in another state?",
+        "rank": 1,
+        "top": [
+          "cfop.md#common-examples"
+        ]
+      },
+      {
+        "question": "Who is the tomador do serviço on a CT-e?",
+        "rank": 1,
+        "top": [
+          "cte.md#parties"
+        ]
+      },
+      {
+        "question": "What is the difference between the cargo value and the total value of the transport service?",
+        "rank": 1,
+        "top": [
+          "cte.md#value-of-the-service"
+        ]
+      },
+      {
+        "question": "Which access keys appear among the documentos originários of a CT-e?",
+        "rank": 1,
+        "top": [
+          "cte.md#referenced-documents"
+        ]
+      },
+      {
+        "question": "What are the minimum and maximum ISS rates?",
+        "rank": 1,
+        "top": [
+          "nfse_iss.md#iss"
+        ]
+      },
+      {
+        "question": "What does it mean when the ISS is withheld?",
+        "rank": 1,
+        "top": [
+          "nfse_iss.md#withholding"
+        ]
+      },
+      {
+        "question": "Which taxes will replace the ISS after the tax reform?",
+        "rank": 1,
+        "top": [
+          "nfse_iss.md#tax-reform"
+        ]
+      },
+      {
+        "question": "How can I check that the ISS amount on an NFS-e is consistent?",
+        "rank": 1,
+        "top": [
+          "nfse_iss.md#iss"
+        ]
+      },
+      {
+        "question": "O que é o tomador e o prestador numa NFS-e?",
+        "rank": 1,
+        "top": [
+          "nfse_iss.md#parties"
+        ]
+      },
+      {
+        "question": "Qual CFOP usar na remessa para conserto?",
+        "rank": 1,
+        "top": [
+          "cfop.md#common-examples"
+        ]
+      },
+      {
+        "question": "Quantos dígitos tem a chave de acesso da NF-e?",
+        "rank": 1,
+        "top": [
+          "nfe_access_key.md#what-it-is"
+        ]
+      }
+    ]
+  },
+  "command": "demo",
+  "classifier": {
+    "labels": [
+      "nfe",
+      "cte",
+      "nfse",
+      "boleto",
+      "other"
+    ],
+    "config": {
+      "seed": 13,
+      "epochs": 40,
+      "patience": 4,
+      "batch_size": 32,
+      "lr": 0.003,
+      "weight_decay": 0.0001,
+      "emb_dim": 48,
+      "hidden": 64,
+      "dropout": 0.2,
+      "augment_per_doc": 8,
+      "eval_views": 4,
+      "min_delta": 0.001,
+      "train_crop": [
+        0.15,
+        0.8
+      ],
+      "train_noise": 0.04,
+      "fragment_crop": [
+        0.08,
+        0.2
+      ],
+      "fragment_noise": 0.06,
+      "n_buckets": 32768,
+      "ngram_low": 3,
+      "ngram_high": 4
+    },
+    "split_sizes": {
+      "train": 180,
+      "val": 60,
+      "test": 60
+    },
+    "n_train_samples": 1620,
+    "epochs_run": 16,
+    "best_epoch": 12,
+    "test_fragment_accuracy": 0.9708,
+    "test_fragment_samples": 240,
+    "test_clean_accuracy": 1.0,
+    "test_clean_samples": 60,
+    "confusion_matrix_fragments": [
+      [
+        70,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        59,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        48,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        31,
+        0
+      ],
+      [
+        0,
+        2,
+        1,
+        0,
+        25
+      ]
+    ],
+    "train_seconds": 11.8,
+    "n_parameters": 1576325
+  },
+  "timings": {
+    "synth": 0.0,
+    "pdf_text": 0.07,
+    "train_classifier": 11.86,
+    "extract_and_eval": 1.3,
+    "rag": 0.01,
+    "total": 13.2
+  }
+}

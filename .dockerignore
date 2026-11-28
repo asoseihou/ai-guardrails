@@ -1,0 +1,33 @@
+# Only what the image needs: requirements.lock, pyproject.toml, README.md, LICENSE,
+# src/, knowledge/, web/, samples/.
+.git
+.github
+.gitignore
+.venv
+venv
+data
+models
+var
+reports
+docs
+tests
+build
+dist
+**/*.egg-info
+**/__pycache__
+**/*.py[cod]
+.pytest_cache
+.ruff_cache
+.mypy_cache
+.hypothesis
+.coverage
+coverage.xml
+htmlcov
+*.pt
+*.db
+*.db-*
+.env
+.env.*
+requirements-dev.lock
+Makefile
+docker-compose.yml

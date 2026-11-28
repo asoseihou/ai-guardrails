@@ -1,0 +1,114 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Least privilege: jobs only read the repository.
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  TORCH_VERSION: "2.15.0"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  # Core packages held to the coverage threshold (the interfaces are covered by API/CLI tests).
+  CORE: "src/docai/domain/*,src/docai/guardrails/*,src/docai/synth/*,src/docai/extract/*,src/docai/eval/*,src/docai/pipeline/*,src/docai/review/*,src/docai/storage/*"
+
+jobs:
+  lint:
+    name: Lint and type-check
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.lock
+      - name: Install (hash-checked lock + CPU torch + package)
+        run: |
+          pip install --require-hashes -r requirements-dev.lock
+          pip install --no-deps --index-url https://download.pytorch.org/whl/cpu "torch==${TORCH_VERSION}"
+          pip install --no-deps --no-build-isolation -e .
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: mypy
+
+  test:
+    name: Tests (Python ${{ matrix.python }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: requirements-dev.lock
+      - name: Install
+        run: |
+          pip install --require-hashes -r requirements-dev.lock
+          pip install --no-deps --index-url https://download.pytorch.org/whl/cpu "torch==${TORCH_VERSION}"
+          pip install --no-deps --no-build-isolation -e .
+      - name: Tests with coverage
+        run: pytest --cov=docai --cov-report=term --cov-report=xml
+      - name: Coverage threshold on the core packages (>= 85%)
+        run: coverage report --include="${CORE}" --fail-under=85
+      - name: Offline demo (smoke)
+        if: matrix.python == '3.12'
+        run: python -m docai demo --n 120 --data /tmp/docai-data --model /tmp/docai.pt --report-dir /tmp/docai-reports --no-track
+      - name: Upload coverage report
+        if: matrix.python == '3.12'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: coverage-xml
+          path: coverage.xml
+          retention-days: 14
+
+  security:
+    name: Security (bandit, pip-audit)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.lock
+      - run: pip install --require-hashes -r requirements-dev.lock
+      - name: Bandit (fails on medium or high severity)
+        run: bandit -r src -ll
+      - name: pip-audit (locked runtime and dev dependencies, plus torch)
+        run: |
+          pip-audit -r requirements.lock --require-hashes --disable-pip --progress-spinner off
+          pip-audit -r requirements-dev.lock --require-hashes --disable-pip --progress-spinner off
+          echo "torch==${TORCH_VERSION}" > torch.txt
+          pip-audit -r torch.txt --no-deps --disable-pip --progress-spinner off
+
+  docker:
+    name: Docker build (no push)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          push: false
+          tags: ai-guardrails:ci

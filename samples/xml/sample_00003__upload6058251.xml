@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompNfse xmlns="http://www.abrasf.org.br/nfse.xsd">
+  <Nfse versao="2.04">
+    <InfNfse Id="nfse18973">
+      <Numero>18973</Numero>
+      <CodigoVerificacao>AZEZ-VPKR</CodigoVerificacao>
+      <DataEmissao>2026-07-07T18:04:00</DataEmissao>
+      <PrestadorServico>
+        <IdentificacaoPrestador>
+          <CpfCnpj>
+            <Cnpj>79358968968017</Cnpj>
+          </CpfCnpj>
+        </IdentificacaoPrestador>
+        <RazaoSocial>Orla Indústria Metalúrgica Ltda</RazaoSocial>
+      </PrestadorServico>
+      <DeclaracaoPrestacaoServico>
+        <InfDeclaracaoPrestacaoServico>
+          <Servico>
+            <Valores>
+              <ValorServicos>2583.88</ValorServicos>
+              <ValorIss>51.68</ValorIss>
+              <Aliquota>2.00</Aliquota>
+            </Valores>
+            <ItemListaServico>16.02</ItemListaServico>
+            <Discriminacao>OUTROS SERVIÇOS DE TRANSPORTE DE NATUREZA MUNICIPAL CONFORME CONTRATO 490/2025</Discriminacao>
+          </Servico>
+          <TomadorServico>
+            <IdentificacaoTomador>
+              <CpfCnpj>
+                <Cnpj>85470089912535</Cnpj>
+              </CpfCnpj>
+            </IdentificacaoTomador>
+            <RazaoSocial>Orla Transportes Ltda</RazaoSocial>
+          </TomadorServico>
+        </InfDeclaracaoPrestacaoServico>
+      </DeclaracaoPrestacaoServico>
+    </InfNfse>
+  </Nfse>
+</CompNfse>

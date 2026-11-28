@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompNfse xmlns="http://www.abrasf.org.br/nfse.xsd">
+  <Nfse versao="2.04">
+    <InfNfse Id="nfse30325">
+      <Numero>30325</Numero>
+      <CodigoVerificacao>YW8S-9WSC</CodigoVerificacao>
+      <DataEmissao>2026-06-10T15:53:00</DataEmissao>
+      <PrestadorServico>
+        <IdentificacaoPrestador>
+          <CpfCnpj>
+            <Cnpj>49966630947403</Cnpj>
+          </CpfCnpj>
+        </IdentificacaoPrestador>
+        <RazaoSocial>Rio Sereno Soluções em Carga ME</RazaoSocial>
+      </PrestadorServico>
+      <DeclaracaoPrestacaoServico>
+        <InfDeclaracaoPrestacaoServico>
+          <Servico>
+            <Valores>
+              <ValorServicos>28827.47</ValorServicos>
+              <ValorIss>864.82</ValorIss>
+              <Aliquota>3.00</Aliquota>
+            </Valores>
+            <ItemListaServico>14.01</ItemListaServico>
+            <Discriminacao>MANUTENÇÃO E CONSERVAÇÃO DE MÁQUINAS E EQUIPAMENTOS CONFORME CONTRATO 849/2025</Discriminacao>
+          </Servico>
+          <TomadorServico>
+            <IdentificacaoTomador>
+              <CpfCnpj>
+                <Cnpj>89207260983166</Cnpj>
+              </CpfCnpj>
+            </IdentificacaoTomador>
+            <RazaoSocial>Araucária Serviços Portuários Ltda</RazaoSocial>
+          </TomadorServico>
+        </InfDeclaracaoPrestacaoServico>
+      </DeclaracaoPrestacaoServico>
+    </InfNfse>
+  </Nfse>
+</CompNfse>

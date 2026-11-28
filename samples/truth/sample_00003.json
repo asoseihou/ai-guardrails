@@ -1,0 +1,46 @@
+{
+  "doc_id": "sample_00003",
+  "filename": "sample_00003__upload6058251.pdf",
+  "doc_type": "nfse",
+  "fields": {
+    "number": "18973",
+    "issue_date": "2026-07-07",
+    "issuer_name": "Orla Indústria Metalúrgica Ltda",
+    "issuer_cnpj": "79358968968017",
+    "recipient_name": "Orla Transportes Ltda",
+    "recipient_cnpj": "85470089912535",
+    "total_value": 2583.88,
+    "iss_rate": 2.0,
+    "iss_value": 51.68,
+    "verification_code": "AZEZ-VPKR",
+    "services": [
+      {
+        "description": "OUTROS SERVIÇOS DE TRANSPORTE DE NATUREZA MUNICIPAL",
+        "quantity": 2,
+        "value": 2583.88
+      }
+    ],
+    "service_order": "42768/2026"
+  },
+  "layout": {
+    "issuer": {
+      "name": "Orla Indústria Metalúrgica Ltda",
+      "cnpj": "79358968968017",
+      "city": "Fortaleza",
+      "uf": "CE",
+      "street": "Travessa da Estação, 4082"
+    },
+    "recipient": {
+      "name": "Orla Transportes Ltda",
+      "cnpj": "85470089912535",
+      "city": "Manaus",
+      "uf": "AM",
+      "street": "Travessa do Comércio, 2497"
+    },
+    "issued_at": "2026-07-07T18:04:00",
+    "service_code": "16.02",
+    "service_name": "Outros serviços de transporte de natureza municipal",
+    "description": "OUTROS SERVIÇOS DE TRANSPORTE DE NATUREZA MUNICIPAL CONFORME CONTRATO 490/2025"
+  },
+  "xml_filename": "sample_00003__upload6058251.xml"
+}

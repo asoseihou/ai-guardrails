@@ -1,0 +1,23 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      python-dependencies:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      # The image follows the Python version the project supports (3.12); only
+      # security patches of that line are proposed. Moving to a newer Python is a
+      # deliberate change (PyTorch wheels must exist for it), not a bot update.
+      - dependency-name: python
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]

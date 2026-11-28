@@ -1,0 +1,51 @@
+{
+  "doc_id": "sample_00001",
+  "filename": "sample_00001__lote-12405.pdf",
+  "doc_type": "nfe",
+  "fields": {
+    "number": "670163",
+    "series": "1",
+    "issue_date": "2026-02-23",
+    "issuer_name": "Zênite Armazéns Gerais S.A.",
+    "issuer_cnpj": "96696744903501",
+    "recipient_name": "Litoral Norte Serviços Portuários Ltda",
+    "recipient_cnpj": "10961529909921",
+    "total_value": 17258.4,
+    "access_key": "15260296696744903501550010006701631455696938",
+    "cfop": "6101"
+  },
+  "layout": {
+    "issuer": {
+      "name": "Zênite Armazéns Gerais S.A.",
+      "cnpj": "96696744903501",
+      "city": "Belém",
+      "uf": "PA",
+      "street": "Avenida do Contorno, 579"
+    },
+    "recipient": {
+      "name": "Litoral Norte Serviços Portuários Ltda",
+      "cnpj": "10961529909921",
+      "city": "São Paulo",
+      "uf": "SP",
+      "street": "Travessa das Palmeiras, 3405"
+    },
+    "issued_at": "2026-02-23T09:45:00",
+    "nature": "VENDA DE MERCADORIA",
+    "protocol": "152772702740504",
+    "items": [
+      {
+        "code": "96814",
+        "description": "JUNTA DE VEDAÇÃO METÁLICA",
+        "ncm": "84841000",
+        "cfop": "6101",
+        "unit": "UN",
+        "qty": 12,
+        "unit_price": 1438.2,
+        "total": 17258.4
+      }
+    ],
+    "icms_rate": 12,
+    "icms_value": 2071.01
+  },
+  "xml_filename": null
+}

@@ -1,0 +1,56 @@
+{
+  "doc_id": "sample_00008",
+  "filename": "sample_00008__scan-1887.pdf",
+  "doc_type": "nfse",
+  "fields": {
+    "number": "30325",
+    "issue_date": "2026-06-10",
+    "issuer_name": "Rio Sereno Soluções em Carga ME",
+    "issuer_cnpj": "49966630947403",
+    "recipient_name": "Araucária Serviços Portuários Ltda",
+    "recipient_cnpj": "89207260983166",
+    "total_value": 28827.47,
+    "iss_rate": 3.0,
+    "iss_value": 864.82,
+    "verification_code": "YW8S-9WSC",
+    "services": [
+      {
+        "description": "MANUTENÇÃO E CONSERVAÇÃO DE MÁQUINAS E EQUIPAMENTOS",
+        "quantity": 6,
+        "value": 913.28
+      },
+      {
+        "description": "DESLOCAMENTO DE EQUIPE",
+        "quantity": 5,
+        "value": 19247.86
+      },
+      {
+        "description": "MATERIAL DE CONSUMO",
+        "quantity": 8,
+        "value": 8666.33
+      }
+    ],
+    "service_order": "26049/2026"
+  },
+  "layout": {
+    "issuer": {
+      "name": "Rio Sereno Soluções em Carga ME",
+      "cnpj": "49966630947403",
+      "city": "Campinas",
+      "uf": "SP",
+      "street": "Travessa do Comércio, 4988"
+    },
+    "recipient": {
+      "name": "Araucária Serviços Portuários Ltda",
+      "cnpj": "89207260983166",
+      "city": "Belo Horizonte",
+      "uf": "MG",
+      "street": "Rodovia do Comércio, 3772"
+    },
+    "issued_at": "2026-06-10T15:53:00",
+    "service_code": "14.01",
+    "service_name": "Manutenção e conservação de máquinas e equipamentos",
+    "description": "MANUTENÇÃO E CONSERVAÇÃO DE MÁQUINAS E EQUIPAMENTOS CONFORME CONTRATO 849/2025"
+  },
+  "xml_filename": "sample_00008__scan-1887.xml"
+}

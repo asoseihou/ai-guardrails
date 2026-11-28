@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ai-guardrails</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>ai-guardrails</h1>
+      <p class="tagline">LLM extraction of Brazilian fiscal documents, checked by deterministic guardrails. Synthetic data only.</p>
+    </div>
+    <div id="health" class="health">connecting…</div>
+  </header>
+
+  <nav class="tabs" aria-label="Sections">
+    <button type="button" class="tab active" data-tab="extract" aria-selected="true">Extract</button>
+    <button type="button" class="tab" data-tab="ask" aria-selected="false">Ask the rules</button>
+    <button type="button" class="tab" data-tab="review" aria-selected="false">Review queue <span id="pending-count" class="count"></span></button>
+    <a class="tab link" href="/dashboard">Dashboard</a>
+    <a class="tab link" href="/docs">API docs</a>
+  </nav>
+
+  <main>
+    <section class="card" id="tab-extract">
+      <h2>Extract a document</h2>
+      <form id="extract-form">
+        <label class="drop" id="drop">
+          <input type="file" id="file" accept="application/pdf">
+          <span id="drop-text">Drop a PDF here or click to choose</span>
+        </label>
+        <div class="row">
+          <label for="sample">or a bundled sample</label>
+          <select id="sample"><option value="">—</option></select>
+          <label class="check"><input type="checkbox" id="use-xml" checked> use its XML when available</label>
+        </div>
+        <div class="row">
+          <label for="xml">fiscal XML (optional)</label>
+          <input type="file" id="xml" accept=".xml,application/xml,text/xml">
+        </div>
+        <div class="row">
+          <label for="noise">Simulated LLM error rate ×<output id="noise-value">1.0</output></label>
+          <input type="range" id="noise" min="0" max="4" step="0.5" value="1">
+        </div>
+        <button type="submit" id="extract-btn">Extract</button>
+      </form>
+      <div id="extract-result" class="result" hidden></div>
+    </section>
+
+    <section class="card" id="tab-ask" hidden>
+      <h2>Ask the fiscal-rules notes</h2>
+      <form id="ask-form" class="ask">
+        <input type="text" id="question" placeholder="e.g. Which positions of the access key hold the issuer CNPJ?" required minlength="3" maxlength="500">
+        <button type="submit">Ask</button>
+      </form>
+      <div id="ask-result" class="result" hidden></div>
+    </section>
+
+    <section class="card" id="tab-review" hidden>
+      <h2>Human review queue</h2>
+      <p class="muted">Documents the guardrails could not settle wait here. Reading, correcting and approving all need the API token, because the queue holds document data. Every correction is checked by the same guardrail rules and written to an append-only audit trail.</p>
+      <div class="row token-row">
+        <label for="token">API token</label>
+        <input type="password" id="token" autocomplete="off" spellcheck="false" placeholder="DOCAI_API_TOKEN">
+        <label class="check"><input type="checkbox" id="remember-token"> remember in this tab</label>
+        <span id="token-state" class="muted">not set</span>
+      </div>
+      <div class="row">
+        <label for="review-status">Show</label>
+        <select id="review-status">
+          <option value="pending">pending</option>
+          <option value="approved">approved</option>
+          <option value="all">all</option>
+        </select>
+        <button type="button" id="review-refresh" class="secondary">Refresh</button>
+      </div>
+      <div id="review-list" class="result"></div>
+      <div id="review-detail" class="result" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    Extraction results in this UI come from the configured provider (a seeded <strong>simulated</strong> LLM unless real credentials are set).
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

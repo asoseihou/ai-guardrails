@@ -1,0 +1,30 @@
+{
+  "doc_id": "sample_00004",
+  "filename": "sample_00004__scan-8504.pdf",
+  "doc_type": "boleto",
+  "fields": {},
+  "layout": {
+    "bank_name": "Banco Exemplo S.A.",
+    "bank_code": "999",
+    "beneficiary": {
+      "name": "Xaréu Manutenção Industrial Ltda",
+      "cnpj": "92224963910495",
+      "city": "Brasília",
+      "uf": "DF",
+      "street": "Rodovia das Indústrias, 2206"
+    },
+    "payer": {
+      "name": "Sol Poente Serviços Portuários Ltda",
+      "cnpj": "63112092966202",
+      "city": "Salvador",
+      "uf": "BA",
+      "street": "Avenida dos Ipês, 505"
+    },
+    "due_date": "2026-07-23",
+    "amount": 21866.18,
+    "our_number": "6301247644",
+    "line": "99995.11174 43256.885576 52373.556963 2 79264515474284",
+    "reference": ""
+  },
+  "xml_filename": null
+}

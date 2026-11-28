@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Generated artifacts (regenerate with `make demo`)
+data/
+models/
+*.pt
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Secrets
+.env
+.env.*
+
+# Local state (review queue and run history)
+var/
+*.db
+*.db-wal
+*.db-shm

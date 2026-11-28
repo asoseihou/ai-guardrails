@@ -1,0 +1,26 @@
+{
+  "doc_id": "sample_00005",
+  "filename": "sample_00005__anexo-453199.pdf",
+  "doc_type": "other",
+  "fields": {},
+  "layout": {
+    "kind": "service_order",
+    "company": {
+      "name": "Litoral Norte Engenharia ME",
+      "cnpj": "35772469917949",
+      "city": "Salvador",
+      "uf": "BA",
+      "street": "Rua Beira Rio, 2507"
+    },
+    "counterpart": {
+      "name": "Xaréu Tecnologia Industrial S.A.",
+      "cnpj": "21857850929589",
+      "city": "Brasília",
+      "uf": "DF",
+      "street": "Travessa Industrial, 30"
+    },
+    "date": "2026-07-17",
+    "ref_number": 706863
+  },
+  "xml_filename": null
+}
