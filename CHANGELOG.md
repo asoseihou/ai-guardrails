@@ -30,6 +30,7 @@ All notable changes to this project are documented here. The format follows [Kee
 - Per-client token-bucket rate limit on `POST`; generic errors with `X-Request-ID`; logs without document content or secrets.
 - Bearer token (`DOCAI_API_TOKEN`, constant-time comparison) for the review queue, reads included, 503 when unset. `DOCAI_REVIEW_PUBLIC_READ=true` opens reads for a demo.
 - MCP file tools sandboxed to `DOCAI_MCP_ROOT`.
+- The web UI keeps the review token only in memory; it is never written to browser storage.
 - Prompt-injection fencing of the document text, with a test that the guardrails catch an obeyed instruction.
 - Supply chain: hash-pinned locks, base image pinned by digest, non-root read-only container with a health check, Actions pinned to commit SHAs, CodeQL, bandit, pip-audit, Dependabot.
 

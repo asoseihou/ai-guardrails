@@ -24,7 +24,6 @@ from pathlib import Path
 from typing import Any
 
 import torch
-from torch import nn
 
 from docai.classify.features import N_BUCKETS, NGRAM_RANGE, augment, ngram_ids
 from docai.classify.model import DocTypeMLP, pack
@@ -102,10 +101,10 @@ def _batches(n: int, size: int, rng: random.Random | None) -> list[list[int]]:
 
 @torch.no_grad()
 def _evaluate(
-    model: nn.Module, x: list[list[int]], y: list[int], batch: int
+    model: torch.nn.Module, x: list[list[int]], y: list[int], batch: int
 ) -> tuple[float, list[int]]:
     model.eval()
-    loss_fn = nn.CrossEntropyLoss(reduction="sum")
+    loss_fn = torch.nn.CrossEntropyLoss(reduction="sum")
     total, preds = 0.0, []
     for idx in _batches(len(x), batch, None):
         ids, offsets = pack([x[i] for i in idx])
@@ -159,7 +158,7 @@ def _train_epoch(
 ) -> float:
     """One pass over the shuffled training samples; returns the mean loss."""
     model.train()
-    loss_fn = nn.CrossEntropyLoss()
+    loss_fn = torch.nn.CrossEntropyLoss()
     x, y = train
     running = 0.0
     for idx in _batches(len(x), cfg.batch_size, batch_rng):

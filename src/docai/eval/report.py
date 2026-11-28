@@ -186,8 +186,10 @@ def _header(results: dict[str, Any], names: list[str]) -> list[str]:
         "",
         _table(["Metric", *(CONFIG_LABELS[n] for n in names)], headline_rows(configs)),
         "",
-        "*Silent error*: the document passes without review but contains at least one wrong "
-        "field. *False correction*: a field the model got right that a guardrail changed.",
+        (
+            "*Silent error*: the document passes without review but contains at least one wrong "
+            "field. *False correction*: a field the model got right that a guardrail changed."
+        ),
         "",
     ]
 
@@ -216,10 +218,12 @@ def _error_mode_section(results: dict[str, Any], names: list[str]) -> list[str]:
         "",
         f"Injected-error rates: {rates} (others per document).",
         "",
-        "*Fixed* / *Caught* are for the full guardrails (v3): fixed = the final value is right "
-        "(corrected from the access key, the XML or a deterministic re-read of the box that "
-        "owns the value); caught = still wrong or empty but the document goes to review. The "
-        "*Missed* columns count errors published silently at each level.",
+        (
+            "*Fixed* / *Caught* are for the full guardrails (v3): fixed = the final value is right "
+            "(corrected from the access key, the XML or a deterministic re-read of the box that "
+            "owns the value); caught = still wrong or empty but the document goes to review. The "
+            "*Missed* columns count errors published silently at each level."
+        ),
         "",
         _table(
             [
@@ -232,10 +236,12 @@ def _error_mode_section(results: dict[str, Any], names: list[str]) -> list[str]:
             rows,
         ),
         "",
-        "`party_role_swap` and `payer_into_recipient` produce values that are printed, valid "
-        "and correctly paired; only the layout anchors (the CNPJ printed inside each role "
-        "block) can see them. Anchors depend on the printed layout: on unknown layouts they "
-        "do nothing and the v2 checks still apply.",
+        (
+            "`party_role_swap` and `payer_into_recipient` produce values that are printed, valid "
+            "and correctly paired; only the layout anchors (the CNPJ printed inside each role "
+            "block) can see them. Anchors depend on the printed layout: on unknown layouts they "
+            "do nothing and the v2 checks still apply."
+        ),
         "",
     ]
 

@@ -7,10 +7,9 @@ over a normalized bag-of-n-grams vector, computed sparsely (fastText-style).
 from __future__ import annotations
 
 import torch
-from torch import nn
 
 
-class DocTypeMLP(nn.Module):
+class DocTypeMLP(torch.nn.Module):
     """Mean EmbeddingBag over hashed n-grams followed by a one-hidden-layer MLP."""
 
     def __init__(
@@ -22,12 +21,12 @@ class DocTypeMLP(nn.Module):
         dropout: float = 0.2,
     ) -> None:
         super().__init__()
-        self.embed = nn.EmbeddingBag(n_buckets, emb_dim, mode="mean")
-        self.mlp = nn.Sequential(
-            nn.Linear(emb_dim, hidden),
-            nn.ReLU(),
-            nn.Dropout(dropout),
-            nn.Linear(hidden, n_classes),
+        self.embed = torch.nn.EmbeddingBag(n_buckets, emb_dim, mode="mean")
+        self.mlp = torch.nn.Sequential(
+            torch.nn.Linear(emb_dim, hidden),
+            torch.nn.ReLU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(hidden, n_classes),
         )
 
     def forward(self, ids: torch.Tensor, offsets: torch.Tensor) -> torch.Tensor:

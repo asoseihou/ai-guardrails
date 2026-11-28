@@ -5,8 +5,7 @@ import pytest
 from hypothesis import given
 from hypothesis import strategies as st
 
-import docai.domain.access_key as access_key_module
-import docai.synth.cnpj as cnpj_module
+from docai.domain import access_key as access_key_module
 from docai.domain.access_key import (
     KEY_LENGTH,
     build_access_key,
@@ -16,6 +15,7 @@ from docai.domain.access_key import (
     key_check_digit,
     parse_access_key,
 )
+from docai.synth import cnpj as cnpj_module
 from docai.synth.cnpj import generate_cnpj
 
 

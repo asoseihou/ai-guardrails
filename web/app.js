@@ -1,10 +1,10 @@
 "use strict";
 // Single-page UI. No inline script or style (strict CSP); every value coming from
-// the API is escaped before it reaches innerHTML. The review token lives in memory
-// (and, only if the user asks, in sessionStorage); it is never put in a URL.
+// the API is escaped before it reaches innerHTML. The review token lives only in
+// memory: it is never written to browser storage or put in a URL, so reloading the
+// page forgets it.
 
 const $ = (id) => document.getElementById(id);
-const TOKEN_KEY = "docai-review-token";
 let apiToken = "";
 let lastUpload = null; // the files of the last extraction, to send them to the review queue
 let currentItem = null;
@@ -213,14 +213,9 @@ function authHeaders(extra = {}) {
 function setToken(value) {
   apiToken = value.trim();
   $("token-state").textContent = apiToken ? "token set (kept in memory)" : "not set";
-  try {
-    if ($("remember-token").checked && apiToken) sessionStorage.setItem(TOKEN_KEY, apiToken);
-    else sessionStorage.removeItem(TOKEN_KEY);
-  } catch { /* storage may be unavailable */ }
 }
 
 $("token").addEventListener("change", () => setToken($("token").value));
-$("remember-token").addEventListener("change", () => setToken($("token").value));
 
 async function refreshPendingCount() {
   try {
@@ -379,14 +374,6 @@ drop.addEventListener("drop", (e) => {
 });
 $("noise").addEventListener("input", () => { $("noise-value").textContent = Number($("noise").value).toFixed(1); });
 
-try {
-  const saved = sessionStorage.getItem(TOKEN_KEY);
-  if (saved) {
-    $("token").value = saved;
-    $("remember-token").checked = true;
-    setToken(saved);
-  }
-} catch { /* storage may be unavailable */ }
 if (location.hash === "#review") selectTab("review");
 loadHealth();
 loadSamples();
