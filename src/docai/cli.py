@@ -194,10 +194,17 @@ def cmd_eval(args: argparse.Namespace) -> int:
 
 
 def _track(results: dict[str, Any], command: str) -> None:
-    """Append the run to the dashboard history (SQLite)."""
+    """Append the run to the dashboard history (SQLite).
+
+    The dashboard follows the ``full`` preset, so a run that did not evaluate it
+    is reported but not recorded.
+    """
     from docai.eval.tracking import run_record
     from docai.storage import RunRepository
 
+    if "full" not in results.get("configs", {}):
+        _say("run not recorded: the dashboard tracks the 'full' preset, which this run skipped")
+        return
     db_path = get_settings().db_path
     run_id = RunRepository(db_path).add(run_record(results, command))
     _say(f"recorded run {run_id} in {db_path} (see /dashboard)")

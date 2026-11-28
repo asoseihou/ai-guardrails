@@ -1,11 +1,11 @@
 import doctest
+import importlib
 import random
 
 import pytest
 from hypothesis import given
 from hypothesis import strategies as st
 
-from docai.domain import access_key as access_key_module
 from docai.domain.access_key import (
     KEY_LENGTH,
     build_access_key,
@@ -15,13 +15,23 @@ from docai.domain.access_key import (
     key_check_digit,
     parse_access_key,
 )
-from docai.synth import cnpj as cnpj_module
 from docai.synth.cnpj import generate_cnpj
+
+# Every module whose docstrings carry ``>>>`` examples. A module that loses its
+# examples fails here instead of silently running zero doctests.
+DOCTEST_MODULES = (
+    "docai.domain.access_key",
+    "docai.domain.cnpj",
+    "docai.domain.compare",
+    "docai.eval.harness",
+    "docai.extract.prompts",
+)
 
 
 def test_doctests():
-    for module in (access_key_module, cnpj_module):
-        assert doctest.testmod(module).failed == 0
+    for name in DOCTEST_MODULES:
+        result = doctest.testmod(importlib.import_module(name))
+        assert result.attempted > 0 and result.failed == 0, name
 
 
 def test_check_digit_of_a_published_layout_example():

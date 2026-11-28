@@ -76,6 +76,25 @@ def test_cli_demo_end_to_end(tmp_path, capsys, api_env):
     assert len(container.get_run_repository().list()) == 1  # the run is tracked
 
 
+def test_cli_eval_without_the_full_preset_is_not_tracked(tmp_path, capsys, api_env, corpus_dir):
+    args = [
+        "eval",
+        "--data",
+        str(corpus_dir),
+        "--model",
+        str(tmp_path / "missing.pt"),
+        "--configs",
+        "off,text",
+        "--report-dir",
+        str(tmp_path / "reports"),
+    ]
+    assert main(args) == 0
+    assert "run not recorded" in capsys.readouterr().out
+    from docai import container
+
+    assert container.get_run_repository().list() == []
+
+
 def test_cli_reports_bad_configuration_without_the_value(monkeypatch):
     from docai import container
 

@@ -1,8 +1,9 @@
-"""Human review queue: list and read (public by default), enqueue / correct / approve (token).
+"""Human review queue: list and read, enqueue, correct and approve, all behind the token.
 
-Mutations require ``Authorization: Bearer <DOCAI_API_TOKEN>`` and are disabled
-(503) when no token is configured. Every mutation lands in the append-only
-audit trail.
+Every endpoint requires ``Authorization: Bearer <DOCAI_API_TOKEN>`` and answers
+503 when no token is configured; ``DOCAI_REVIEW_PUBLIC_READ=true`` opens the two
+read endpoints for a demo with synthetic data. Every mutation lands in the
+append-only audit trail.
 """
 
 from __future__ import annotations
